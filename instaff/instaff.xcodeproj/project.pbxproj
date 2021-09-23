@@ -86,6 +86,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		DD8E42A926FD20BE00125F87 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				DD9416D726FCEA04006D0AF1 /* Controllers */,
+				DD9416D826FCEA23006D0AF1 /* Storyboard */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		DD94168B26FCCD4C006D0AF1 = {
 			isa = PBXGroup;
 			children = (
@@ -136,13 +145,12 @@
 		DD9416D326FCE8FF006D0AF1 /* Source */ = {
 			isa = PBXGroup;
 			children = (
-				DD9416D726FCEA04006D0AF1 /* Controllers */,
 				DD9416D626FCE9DF006D0AF1 /* Global */,
+				DD9416D926FCEA5D006D0AF1 /* Model */,
+				DD8E42A926FD20BE00125F87 /* View */,
+				DD9416DB26FCEA7D006D0AF1 /* ViewModel */,
 				DD9416DA26FCEA70006D0AF1 /* Helpers */,
-				DD9416D926FCEA5D006D0AF1 /* Models */,
 				DD9416DC26FCEB22006D0AF1 /* Network */,
-				DD9416DB26FCEA7D006D0AF1 /* ViewModels */,
-				DD9416D826FCEA23006D0AF1 /* Storyboards */,
 			);
 			path = Source;
 			sourceTree = "<group>";
@@ -151,6 +159,7 @@
 			isa = PBXGroup;
 			children = (
 				DD9416A026FCCD52006D0AF1 /* Assets.xcassets */,
+				DD9416A226FCCD52006D0AF1 /* LaunchScreen.storyboard */,
 			);
 			path = Resource;
 			sourceTree = "<group>";
@@ -180,20 +189,19 @@
 			path = Controllers;
 			sourceTree = "<group>";
 		};
-		DD9416D826FCEA23006D0AF1 /* Storyboards */ = {
+		DD9416D826FCEA23006D0AF1 /* Storyboard */ = {
 			isa = PBXGroup;
 			children = (
-				DD9416A226FCCD52006D0AF1 /* LaunchScreen.storyboard */,
 				DD94169D26FCCD4C006D0AF1 /* Main.storyboard */,
 			);
-			path = Storyboards;
+			path = Storyboard;
 			sourceTree = "<group>";
 		};
-		DD9416D926FCEA5D006D0AF1 /* Models */ = {
+		DD9416D926FCEA5D006D0AF1 /* Model */ = {
 			isa = PBXGroup;
 			children = (
 			);
-			path = Models;
+			path = Model;
 			sourceTree = "<group>";
 		};
 		DD9416DA26FCEA70006D0AF1 /* Helpers */ = {
@@ -203,11 +211,11 @@
 			path = Helpers;
 			sourceTree = "<group>";
 		};
-		DD9416DB26FCEA7D006D0AF1 /* ViewModels */ = {
+		DD9416DB26FCEA7D006D0AF1 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
 			);
-			path = ViewModels;
+			path = ViewModel;
 			sourceTree = "<group>";
 		};
 		DD9416DC26FCEB22006D0AF1 /* Network */ = {
