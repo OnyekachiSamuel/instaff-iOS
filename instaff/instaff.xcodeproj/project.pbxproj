@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		DD8E42AB26FD225C00125F87 /* Company.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD8E42AA26FD225C00125F87 /* Company.swift */; };
 		DD94169826FCCD4C006D0AF1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD94169726FCCD4C006D0AF1 /* AppDelegate.swift */; };
 		DD94169A26FCCD4C006D0AF1 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD94169926FCCD4C006D0AF1 /* SceneDelegate.swift */; };
 		DD94169C26FCCD4C006D0AF1 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD94169B26FCCD4C006D0AF1 /* ViewController.swift */; };
@@ -41,6 +42,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		DD8E42AA26FD225C00125F87 /* Company.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Company.swift; sourceTree = "<group>"; };
 		DD94169426FCCD4C006D0AF1 /* instaff.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = instaff.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DD94169726FCCD4C006D0AF1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DD94169926FCCD4C006D0AF1 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -200,6 +202,7 @@
 		DD9416D926FCEA5D006D0AF1 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				DD8E42AA26FD225C00125F87 /* Company.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -370,6 +373,7 @@
 				DD94169C26FCCD4C006D0AF1 /* ViewController.swift in Sources */,
 				DD94169826FCCD4C006D0AF1 /* AppDelegate.swift in Sources */,
 				DD94169A26FCCD4C006D0AF1 /* SceneDelegate.swift in Sources */,
+				DD8E42AB26FD225C00125F87 /* Company.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
