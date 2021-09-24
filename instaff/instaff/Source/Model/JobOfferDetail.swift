@@ -11,12 +11,12 @@ public struct JobOfferDetail: Decodable {
     let address: String
     let city: String
     let description: String
-    let fromDate: Date
+    let fromDate: String
     let jobID: Int
     let jobOfferHours: String
     let jobType: String
-    let tillDate: Date
-    let wageRange: String
+    let tillDate: String
+    let wageRange: WageRange
 
     private enum CodingKeys: String, CodingKey {
         case address = "LocationString"
@@ -28,5 +28,23 @@ public struct JobOfferDetail: Decodable {
         case jobType = "JobTypeLabel"
         case tillDate = "Till"
         case wageRange = "WageRange"
+    }
+}
+
+enum WageRange: Decodable {
+    case integer(Int)
+    case string(String)
+
+    init(from decoder: Decoder) throws {
+        let container = try decoder.singleValueContainer()
+        if let x = try? container.decode(Int.self) {
+            self = .integer(x)
+            return
+        }
+        if let x = try? container.decode(String.self) {
+            self = .string(x)
+            return
+        }
+        throw DecodingError.typeMismatch(WageRange.self, DecodingError.Context(codingPath: decoder.codingPath, debugDescription: "Wrong type for WageRange"))
     }
 }
