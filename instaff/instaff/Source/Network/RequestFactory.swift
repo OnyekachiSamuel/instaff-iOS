@@ -24,3 +24,7 @@ final class RequestFactory {
         return request
     }
 }
+
+func getURL() -> URL {
+    return URL(string: "https://www.instaff.jobs/rest/account/joboffers/list")!
+}
