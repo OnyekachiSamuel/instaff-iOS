@@ -79,7 +79,7 @@
 		DD8E42D726FE007000125F87 /* UIColor+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extension.swift"; sourceTree = "<group>"; };
 		DD8E42D926FE095700125F87 /* Constant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constant.swift; sourceTree = "<group>"; };
 		DD8E42DB26FE188600125F87 /* JobDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JobDetailViewModel.swift; sourceTree = "<group>"; };
-		DD94169426FCCD4C006D0AF1 /* instaff.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = instaff.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		DD94169426FCCD4C006D0AF1 /* Instaff.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Instaff.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DD94169726FCCD4C006D0AF1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DD94169926FCCD4C006D0AF1 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		DD94169B26FCCD4C006D0AF1 /* JobOfferListController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JobOfferListController.swift; sourceTree = "<group>"; };
@@ -87,9 +87,9 @@
 		DD9416A026FCCD52006D0AF1 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		DD9416A326FCCD52006D0AF1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		DD9416A526FCCD52006D0AF1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		DD9416AA26FCCD52006D0AF1 /* instaffTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = instaffTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		DD9416AA26FCCD52006D0AF1 /* InstaffTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = InstaffTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		DD9416AE26FCCD52006D0AF1 /* instaffTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = instaffTests.swift; sourceTree = "<group>"; };
-		DD9416B426FCCD53006D0AF1 /* instaffUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = instaffUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		DD9416B426FCCD53006D0AF1 /* InstaffUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = InstaffUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		DD9416B826FCCD53006D0AF1 /* instaffUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = instaffUITests.swift; sourceTree = "<group>"; };
 		DD9416BA26FCCD53006D0AF1 /* instaffUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = instaffUITestsLaunchTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -172,9 +172,9 @@
 		DD94169526FCCD4C006D0AF1 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				DD94169426FCCD4C006D0AF1 /* instaff.app */,
-				DD9416AA26FCCD52006D0AF1 /* instaffTests.xctest */,
-				DD9416B426FCCD53006D0AF1 /* instaffUITests.xctest */,
+				DD94169426FCCD4C006D0AF1 /* Instaff.app */,
+				DD9416AA26FCCD52006D0AF1 /* InstaffTests.xctest */,
+				DD9416B426FCCD53006D0AF1 /* InstaffUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -309,9 +309,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		DD94169326FCCD4C006D0AF1 /* instaff */ = {
+		DD94169326FCCD4C006D0AF1 /* Instaff */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = DD9416BE26FCCD53006D0AF1 /* Build configuration list for PBXNativeTarget "instaff" */;
+			buildConfigurationList = DD9416BE26FCCD53006D0AF1 /* Build configuration list for PBXNativeTarget "Instaff" */;
 			buildPhases = (
 				DD94169026FCCD4C006D0AF1 /* Sources */,
 				DD94169126FCCD4C006D0AF1 /* Frameworks */,
@@ -321,7 +321,7 @@
 			);
 			dependencies = (
 			);
-			name = instaff;
+			name = Instaff;
 			packageProductDependencies = (
 				DD9416C826FCDADF006D0AF1 /* RxCocoa */,
 				DD9416CA26FCDADF006D0AF1 /* RxRelay */,
@@ -330,12 +330,12 @@
 				DD9416D126FCDC39006D0AF1 /* RealmSwift */,
 			);
 			productName = instaff;
-			productReference = DD94169426FCCD4C006D0AF1 /* instaff.app */;
+			productReference = DD94169426FCCD4C006D0AF1 /* Instaff.app */;
 			productType = "com.apple.product-type.application";
 		};
-		DD9416A926FCCD52006D0AF1 /* instaffTests */ = {
+		DD9416A926FCCD52006D0AF1 /* InstaffTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = DD9416C126FCCD53006D0AF1 /* Build configuration list for PBXNativeTarget "instaffTests" */;
+			buildConfigurationList = DD9416C126FCCD53006D0AF1 /* Build configuration list for PBXNativeTarget "InstaffTests" */;
 			buildPhases = (
 				DD9416A626FCCD52006D0AF1 /* Sources */,
 				DD9416A726FCCD52006D0AF1 /* Frameworks */,
@@ -346,14 +346,14 @@
 			dependencies = (
 				DD9416AC26FCCD52006D0AF1 /* PBXTargetDependency */,
 			);
-			name = instaffTests;
+			name = InstaffTests;
 			productName = instaffTests;
-			productReference = DD9416AA26FCCD52006D0AF1 /* instaffTests.xctest */;
+			productReference = DD9416AA26FCCD52006D0AF1 /* InstaffTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
-		DD9416B326FCCD53006D0AF1 /* instaffUITests */ = {
+		DD9416B326FCCD53006D0AF1 /* InstaffUITests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = DD9416C426FCCD53006D0AF1 /* Build configuration list for PBXNativeTarget "instaffUITests" */;
+			buildConfigurationList = DD9416C426FCCD53006D0AF1 /* Build configuration list for PBXNativeTarget "InstaffUITests" */;
 			buildPhases = (
 				DD9416B026FCCD53006D0AF1 /* Sources */,
 				DD9416B126FCCD53006D0AF1 /* Frameworks */,
@@ -364,9 +364,9 @@
 			dependencies = (
 				DD9416B626FCCD53006D0AF1 /* PBXTargetDependency */,
 			);
-			name = instaffUITests;
+			name = InstaffUITests;
 			productName = instaffUITests;
-			productReference = DD9416B426FCCD53006D0AF1 /* instaffUITests.xctest */;
+			productReference = DD9416B426FCCD53006D0AF1 /* InstaffUITests.xctest */;
 			productType = "com.apple.product-type.bundle.ui-testing";
 		};
 /* End PBXNativeTarget section */
@@ -392,7 +392,7 @@
 					};
 				};
 			};
-			buildConfigurationList = DD94168F26FCCD4C006D0AF1 /* Build configuration list for PBXProject "instaff" */;
+			buildConfigurationList = DD94168F26FCCD4C006D0AF1 /* Build configuration list for PBXProject "Instaff" */;
 			compatibilityVersion = "Xcode 13.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -409,9 +409,9 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				DD94169326FCCD4C006D0AF1 /* instaff */,
-				DD9416A926FCCD52006D0AF1 /* instaffTests */,
-				DD9416B326FCCD53006D0AF1 /* instaffUITests */,
+				DD94169326FCCD4C006D0AF1 /* Instaff */,
+				DD9416A926FCCD52006D0AF1 /* InstaffTests */,
+				DD9416B326FCCD53006D0AF1 /* InstaffUITests */,
 			);
 		};
 /* End PBXProject section */
@@ -495,12 +495,12 @@
 /* Begin PBXTargetDependency section */
 		DD9416AC26FCCD52006D0AF1 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = DD94169326FCCD4C006D0AF1 /* instaff */;
+			target = DD94169326FCCD4C006D0AF1 /* Instaff */;
 			targetProxy = DD9416AB26FCCD52006D0AF1 /* PBXContainerItemProxy */;
 		};
 		DD9416B626FCCD53006D0AF1 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = DD94169326FCCD4C006D0AF1 /* instaff */;
+			target = DD94169326FCCD4C006D0AF1 /* Instaff */;
 			targetProxy = DD9416B526FCCD53006D0AF1 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -720,7 +720,7 @@
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/instaff.app/instaff";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Instaff.app/Instaff";
 			};
 			name = Debug;
 		};
@@ -745,7 +745,7 @@
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/instaff.app/instaff";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Instaff.app/Instaff";
 			};
 			name = Release;
 		};
@@ -798,7 +798,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		DD94168F26FCCD4C006D0AF1 /* Build configuration list for PBXProject "instaff" */ = {
+		DD94168F26FCCD4C006D0AF1 /* Build configuration list for PBXProject "Instaff" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				DD9416BC26FCCD53006D0AF1 /* Debug */,
@@ -807,7 +807,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		DD9416BE26FCCD53006D0AF1 /* Build configuration list for PBXNativeTarget "instaff" */ = {
+		DD9416BE26FCCD53006D0AF1 /* Build configuration list for PBXNativeTarget "Instaff" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				DD9416BF26FCCD53006D0AF1 /* Debug */,
@@ -816,7 +816,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		DD9416C126FCCD53006D0AF1 /* Build configuration list for PBXNativeTarget "instaffTests" */ = {
+		DD9416C126FCCD53006D0AF1 /* Build configuration list for PBXNativeTarget "InstaffTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				DD9416C226FCCD53006D0AF1 /* Debug */,
@@ -825,7 +825,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		DD9416C426FCCD53006D0AF1 /* Build configuration list for PBXNativeTarget "instaffUITests" */ = {
+		DD9416C426FCCD53006D0AF1 /* Build configuration list for PBXNativeTarget "InstaffUITests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				DD9416C526FCCD53006D0AF1 /* Debug */,
