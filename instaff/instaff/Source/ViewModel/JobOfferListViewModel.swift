@@ -19,6 +19,10 @@ final public class JobOfferListViewModel: JobOfferListProtocol {
 
     public let jobOffers: PublishSubject<[JobOffer]> = PublishSubject()
     public let error: PublishSubject<Error> = PublishSubject()
+    public var offers: Observable<[JobOffer]> {
+        return jobOffers.asObservable()
+    }
+    public let title = "Job Offers"
 
     public init(service: JobOfferLoader) {
         self.service = service
@@ -33,7 +37,6 @@ final public class JobOfferListViewModel: JobOfferListProtocol {
                     self.jobOffers.onNext(offers)
                 case let .failure(error):
                     self.error.onError(error)
-                    print(error)
             }
         }
     }
