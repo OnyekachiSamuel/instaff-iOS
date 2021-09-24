@@ -10,23 +10,33 @@ import Foundation
 public struct JobOfferDetail: Decodable {
     let address: String
     let city: String
+    let deploymentName: String
     let description: String
     let fromDate: String
     let jobID: Int
     let jobOfferHours: String
     let jobType: String
+    let hoursNumber: Double
     let tillDate: String
+    let wage: Double
     let wageRange: WageRange
+
+    var estimatedTotalSalary: Double {
+        return hoursNumber * wage
+    }
 
     private enum CodingKeys: String, CodingKey {
         case address = "LocationString"
         case city = "City"
+        case deploymentName = "Event"
         case description = "ShortDescription"
         case fromDate = "From"
         case jobID = "Id"
         case jobOfferHours = "Hours"
         case jobType = "JobTypeLabel"
+        case hoursNumber = "HoursNumber"
         case tillDate = "Till"
+        case wage = "Wage"
         case wageRange = "WageRange"
     }
 }
