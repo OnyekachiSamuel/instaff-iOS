@@ -26,6 +26,7 @@
 		DD8E42D826FE007000125F87 /* UIColor+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD8E42D726FE007000125F87 /* UIColor+Extension.swift */; };
 		DD8E42DA26FE095700125F87 /* Constant.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD8E42D926FE095700125F87 /* Constant.swift */; };
 		DD8E42DC26FE188600125F87 /* JobDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD8E42DB26FE188600125F87 /* JobDetailViewModel.swift */; };
+		DD8E42DE26FF598700125F87 /* DataStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD8E42DD26FF598700125F87 /* DataStore.swift */; };
 		DD94169826FCCD4C006D0AF1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD94169726FCCD4C006D0AF1 /* AppDelegate.swift */; };
 		DD94169A26FCCD4C006D0AF1 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD94169926FCCD4C006D0AF1 /* SceneDelegate.swift */; };
 		DD94169C26FCCD4C006D0AF1 /* JobOfferListController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD94169B26FCCD4C006D0AF1 /* JobOfferListController.swift */; };
@@ -79,6 +80,7 @@
 		DD8E42D726FE007000125F87 /* UIColor+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extension.swift"; sourceTree = "<group>"; };
 		DD8E42D926FE095700125F87 /* Constant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constant.swift; sourceTree = "<group>"; };
 		DD8E42DB26FE188600125F87 /* JobDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JobDetailViewModel.swift; sourceTree = "<group>"; };
+		DD8E42DD26FF598700125F87 /* DataStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataStore.swift; sourceTree = "<group>"; };
 		DD94169426FCCD4C006D0AF1 /* Instaff.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Instaff.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DD94169726FCCD4C006D0AF1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DD94169926FCCD4C006D0AF1 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -159,6 +161,14 @@
 			path = Extensions;
 			sourceTree = "<group>";
 		};
+		DD8E42DF26FF5B6700125F87 /* DataStore */ = {
+			isa = PBXGroup;
+			children = (
+				DD8E42DD26FF598700125F87 /* DataStore.swift */,
+			);
+			path = DataStore;
+			sourceTree = "<group>";
+		};
 		DD94168B26FCCD4C006D0AF1 = {
 			isa = PBXGroup;
 			children = (
@@ -216,6 +226,7 @@
 				DD9416DB26FCEA7D006D0AF1 /* ViewModel */,
 				DD9416DA26FCEA70006D0AF1 /* Helpers */,
 				DD9416DC26FCEB22006D0AF1 /* Network */,
+				DD8E42DF26FF5B6700125F87 /* DataStore */,
 			);
 			path = Source;
 			sourceTree = "<group>";
@@ -464,6 +475,7 @@
 				DD8E42C126FD6A8500125F87 /* URLSessionHTTPClient.swift in Sources */,
 				DD94169A26FCCD4C006D0AF1 /* SceneDelegate.swift in Sources */,
 				DD8E42BB26FD625B00125F87 /* JobOfferLoader.swift in Sources */,
+				DD8E42DE26FF598700125F87 /* DataStore.swift in Sources */,
 				DD8E42AB26FD225C00125F87 /* Company.swift in Sources */,
 				DD8E42CF26FDF05D00125F87 /* JobDetailController.swift in Sources */,
 				DD8E42B926FD61AA00125F87 /* RemoteJobOfferLoader.swift in Sources */,
@@ -647,7 +659,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_TEAM = YT3VFVK232;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "instaff/Supporting Files/Info.plist";
@@ -676,7 +688,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_TEAM = YT3VFVK232;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "instaff/Supporting Files/Info.plist";

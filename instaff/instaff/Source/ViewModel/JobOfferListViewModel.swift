@@ -7,15 +7,18 @@
 
 import Foundation
 import RxSwift
+import RealmSwift
 
 public protocol JobOfferListProtocol: AnyObject {
     var jobOffers: PublishSubject<[JobOffer]> { get }
     var error: PublishSubject<Error> { get }
     func getJobOffers()
+    func getJobOfferDetail(jobId: Int)
 }
 
 final public class JobOfferListViewModel: JobOfferListProtocol {
     private let service: JobOfferLoader
+    private let dataStore: DataStoreProtocol
 
     public let jobOffers: PublishSubject<[JobOffer]> = PublishSubject()
     public let error: PublishSubject<Error> = PublishSubject()
@@ -23,9 +26,9 @@ final public class JobOfferListViewModel: JobOfferListProtocol {
         return jobOffers.asObservable()
     }
     public let title = "Job Offers"
-
-    public init(service: JobOfferLoader) {
+    public init(service: JobOfferLoader, dataStore: DataStoreProtocol = DataStore()) {
         self.service = service
+        self.dataStore = dataStore
     }
 
     public func getJobOffers() {
@@ -34,10 +37,22 @@ final public class JobOfferListViewModel: JobOfferListProtocol {
             switch result {
                 case let .success(responseData):
                     let offers = responseData.payload.data.jobItems
-                    self.jobOffers.onNext(offers)
+                    let result = offers.compactMap { $0.jobOfferDetail }
+                    let jobOfferDetails = List<JobOfferDetail>()
+                    jobOfferDetails.append(objectsIn: result)
+                    DispatchQueue.main.async {
+                        self.dataStore.save(jobOfferDetails: jobOfferDetails)
+                    }
+                    self.jobOffers.onNext(Array(offers))
                 case let .failure(error):
                     self.error.onError(error)
             }
+        }
+    }
+
+    public func getJobOfferDetail(jobId: Int) {
+        dataStore.getJobOfferDetail(with: jobId) { offer in
+            
         }
     }
 }
