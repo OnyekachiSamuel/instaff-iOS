@@ -6,30 +6,33 @@
 //
 
 import Foundation
+import RealmSwift
 
-public struct JobOfferDetail: Decodable {
-    let address: String
-    let city: String
-    let deploymentName: String
-    let description: String
-    let fromDate: String
-    let jobID: Int
-    let jobOfferHours: String
-    let jobType: String
-    let hoursNumber: Double
-    let tillDate: String
-    let wage: Double
-    let wageRange: WageRange
+@objcMembers public final class JobOfferDetail: Object {
+    dynamic let address: String
+    dynamic let city: String
+    dynamic let deploymentName: String
+    dynamic let detail: String
+    dynamic let fromDate: String
+    dynamic let jobID: Int
+    dynamic let jobOfferHours: String
+    dynamic let jobType: String
+    dynamic let hoursNumber: Double
+    dynamic let tillDate: String
+    dynamic let wage: Double
+    dynamic let wageRange: WageRange
 
     var estimatedTotalSalary: Double {
         return hoursNumber * wage
     }
+}
 
-    private enum CodingKeys: String, CodingKey {
+extension JobOfferDetail: Decodable {
+    enum CodingKeys: String, CodingKey {
         case address = "LocationString"
         case city = "City"
         case deploymentName = "Event"
-        case description = "ShortDescription"
+        case detail = "ShortDescription"
         case fromDate = "From"
         case jobID = "Id"
         case jobOfferHours = "Hours"

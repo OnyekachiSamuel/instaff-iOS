@@ -6,11 +6,12 @@
 //
 
 import Foundation
+import RealmSwift
 
-public struct Company: Decodable {
-    let companyID: Int
-    let companyName: String
-    let companyURL: String
+@objcMembers public class Company: Object, Decodable {
+    dynamic let companyID: Int
+    dynamic let companyName: String
+    dynamic let companyURL: String
 
     private enum CodingKeys: String, CodingKey {
         case companyID = "Id"

@@ -6,10 +6,11 @@
 //
 
 import Foundation
+import RealmSwift
 
-public struct JobOffer: Decodable {
-    let jobOfferDetail: JobOfferDetail
-    let company: Company
+public class JobOffer: Object, Decodable {
+    @objc dynamic var jobOfferDetail: JobOfferDetail? = nil
+    @objc dynamic var company: Company? = nil
     let rating: Double
 
     private enum CodingKeys: String, CodingKey {
