@@ -11,7 +11,7 @@ import RealmSwift
 public class JobOffer: Object, Decodable {
     @objc dynamic var jobOfferDetail: JobOfferDetail? = nil
     @objc dynamic var company: Company? = nil
-    let rating: Double
+    @objc dynamic let rating: Double
 
     private enum CodingKeys: String, CodingKey {
         case jobOfferDetail = "offer"
