@@ -7,6 +7,6 @@
 
 import Foundation
 
-public struct Items: Decodable {
+public final class Items: Decodable {
     let jobItems: [JobOffer]
 }

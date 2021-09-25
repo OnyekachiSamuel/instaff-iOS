@@ -8,11 +8,13 @@
 import Foundation
 import RealmSwift
 
-public class JobOffer: Object, Decodable {
+public final class JobOffer: Object {
     @objc dynamic var jobOfferDetail: JobOfferDetail? = nil
     @objc dynamic var company: Company? = nil
     @objc dynamic let rating: Double
+}
 
+extension JobOffer: Decodable {
     private enum CodingKeys: String, CodingKey {
         case jobOfferDetail = "offer"
         case company

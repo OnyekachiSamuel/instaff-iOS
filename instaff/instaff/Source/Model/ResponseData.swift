@@ -7,10 +7,10 @@
 
 import Foundation
 
-public struct ResponseData: Decodable {
+public final class ResponseData: Decodable {
     let payload: Payload
 }
 
-public struct Payload: Decodable {
+public final class Payload: Decodable {
     let data: Items
 }
