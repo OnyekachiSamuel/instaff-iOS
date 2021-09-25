@@ -9,9 +9,9 @@ import Foundation
 import RealmSwift
 
 @objcMembers public final class Company: Object {
-    dynamic let companyID: Int
-    dynamic let companyName: String
-    dynamic let companyURL: String
+    dynamic var companyID: Int = 0
+    dynamic var companyName: String = ""
+    dynamic var companyURL: String = ""
 }
 
 extension Company: Decodable {

@@ -9,21 +9,26 @@ import Foundation
 import RealmSwift
 
 @objcMembers public final class JobOfferDetail: Object {
-    dynamic let address: String
-    dynamic let city: String
-    dynamic let deploymentName: String
-    dynamic let detail: String
-    dynamic let fromDate: String
-    dynamic let jobID: Int
-    dynamic let jobOfferHours: String
-    dynamic let jobType: String
-    dynamic let hoursNumber: Double
-    dynamic let tillDate: String
-    dynamic let wage: Double
+    dynamic var id = UUID().uuidString
+    dynamic var address: String = ""
+    dynamic var city: String = ""
+    dynamic var deploymentName: String = ""
+    dynamic var detail: String = ""
+    dynamic var fromDate: String = ""
+    dynamic var jobID: Int = 0
+    dynamic var jobOfferHours: String = ""
+    dynamic var jobType: String = ""
+    dynamic var hoursNumber: Double = 0.0
+    dynamic var tillDate: String = ""
+    dynamic var wage: Double = 0.0
     dynamic let wageRange: WageRange
 
     var estimatedTotalSalary: Double {
         return hoursNumber * wage
+    }
+
+    public override static func primaryKey() -> String {
+        "id"
     }
 }
 
