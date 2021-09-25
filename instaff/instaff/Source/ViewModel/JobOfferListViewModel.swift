@@ -10,19 +10,20 @@ import RxSwift
 import RealmSwift
 
 public protocol JobOfferListProtocol: AnyObject {
-    var jobOffers: PublishSubject<[JobOffer]> { get }
+    var jobOffers: PublishSubject<[JobOfferDetail]> { get }
     var error: PublishSubject<Error> { get }
     func getJobOffers()
-    func getJobOfferDetail(jobId: Int)
+    func getJobOfferDetails()
+    func remove(jobDetail: JobOfferDetail, completion: @escaping () -> Void)
 }
 
 final public class JobOfferListViewModel: JobOfferListProtocol {
     private let service: JobOfferLoader
     private let dataStore: DataStoreProtocol
 
-    public let jobOffers: PublishSubject<[JobOffer]> = PublishSubject()
+    public let jobOffers: PublishSubject<[JobOfferDetail]> = PublishSubject()
     public let error: PublishSubject<Error> = PublishSubject()
-    public var offers: Observable<[JobOffer]> {
+    public var offers: Observable<[JobOfferDetail]> {
         return jobOffers.asObservable()
     }
     public let title = "Job Offers"
@@ -43,16 +44,21 @@ final public class JobOfferListViewModel: JobOfferListProtocol {
                     DispatchQueue.main.async {
                         self.dataStore.save(jobOfferDetails: jobOfferDetails)
                     }
-                    self.jobOffers.onNext(Array(offers))
+                    self.jobOffers.onNext(result)
                 case let .failure(error):
                     self.error.onError(error)
             }
         }
     }
 
-    public func getJobOfferDetail(jobId: Int) {
-        dataStore.getJobOfferDetail(with: jobId) { offer in
-            
+    public func getJobOfferDetails() {
+        dataStore.getAllJobDetails { jobDetails in
+            self.jobOffers.onNext(jobDetails)
         }
+    }
+
+    public func remove(jobDetail: JobOfferDetail, completion: @escaping () -> Void) {
+        dataStore.remove(jobDetail: jobDetail)
+        completion()
     }
 }

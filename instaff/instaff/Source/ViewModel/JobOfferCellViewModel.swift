@@ -8,14 +8,10 @@
 import Foundation
 
 public final class JobOfferCellViewModel {
-    private let jobOffer: JobOffer
+    private let jobOfferDetail: JobOfferDetail
 
-    public init(jobOffer: JobOffer) {
-        self.jobOffer = jobOffer
-    }
-
-    private var jobOfferDetail: JobOfferDetail {
-        return jobOffer.jobOfferDetail!
+    public init(jobOfferDetail: JobOfferDetail) {
+        self.jobOfferDetail = jobOfferDetail
     }
 
     private var fromData: String {

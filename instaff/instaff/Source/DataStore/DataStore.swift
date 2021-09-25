@@ -12,7 +12,7 @@ public protocol DataStoreProtocol {
     func save(jobOfferDetails: List<JobOfferDetail>)
     func getJobOfferDetail(with jobId: Int, completion: @escaping (JobOfferDetail) -> Void)
     func getAllJobDetails(completion: @escaping ([JobOfferDetail]) -> Void)
-    func remove(jobDetail: JobOfferDetail, completion: @escaping () -> Void)
+    func remove(jobDetail: JobOfferDetail)
 }
 
 public class DataStore: DataStoreProtocol {
@@ -40,7 +40,7 @@ public class DataStore: DataStoreProtocol {
         completion(jobOfferDetail)
     }
 
-    public func remove(jobDetail: JobOfferDetail, completion: @escaping () -> Void) {
+    public func remove(jobDetail: JobOfferDetail) {
         try! realm.write {
             realm.delete(jobDetail)
         }

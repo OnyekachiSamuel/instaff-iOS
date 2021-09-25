@@ -8,17 +8,19 @@
 import Foundation
 
 final class JobDetailViewModel {
-    private let jobOffer: JobOffer
+    let jobOfferDetail: JobOfferDetail
+    private let dataStore: DataStoreProtocol
 
-    init(jobOffer: JobOffer) {
-        self.jobOffer = jobOffer
+    init(jobOfferDetail: JobOfferDetail, dataStore: DataStoreProtocol = DataStore()) {
+        self.jobOfferDetail = jobOfferDetail
+        self.dataStore = dataStore
     }
 
     public var jobType: String {
-        return jobOffer.jobOfferDetail!.jobType
+        return jobOfferDetail.jobType
     }
 
     public var jobDescription: String {
-        return jobOffer.jobOfferDetail!.detail
+        return jobOfferDetail.detail
     }
 }

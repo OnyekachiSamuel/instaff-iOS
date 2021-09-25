@@ -22,17 +22,18 @@ final class JobOfferListController: UIViewController {
         viewModel?
             .offers
             .observe(on: MainScheduler.instance)
-            .bind(to: jobOfferList.rx.items(cellIdentifier: JobOfferCell.reuseIdentifier, cellType: JobOfferCell.self)) { [weak self] row, jobOffer, cell in
-                let cellViewModel = JobOfferCellViewModel(jobOffer: jobOffer)
+            .bind(to: jobOfferList.rx.items(cellIdentifier: JobOfferCell.reuseIdentifier, cellType: JobOfferCell.self)) { [weak self] row, jobOfferDetail, cell in
+                let cellViewModel = JobOfferCellViewModel(jobOfferDetail: jobOfferDetail)
                 cell.backgroundColor = self?.nextColor(index: row)
                 cell.viewModel = cellViewModel
             }.disposed(by: disposeBag)
 
-        jobOfferList.rx.modelSelected(JobOffer.self)
-            .subscribe(onNext: { [weak self] model in
+        jobOfferList.rx.modelSelected(JobOfferDetail.self)
+            .subscribe(onNext: { [weak self] jobOfferDetail in
                 guard let self = self else { return }
                 let jobDetailController = self.getJobDetailController()
-                let viewModel = JobDetailViewModel(jobOffer: model)
+                jobDetailController.delegate = self
+                let viewModel = JobDetailViewModel(jobOfferDetail: jobOfferDetail)
                 jobDetailController.viewModel = viewModel
                 self.navigationController?.pushViewController(jobDetailController, animated: true)
             }).disposed(by: disposeBag)
@@ -82,6 +83,17 @@ extension JobOfferListController: UICollectionViewDelegate, UICollectionViewDele
 
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
         return 8.0
+    }
+}
+
+extension JobOfferListController: JobDetailControllerDelegate {
+    func didAcceptJobOffer(jobDetail: JobOfferDetail) {
+        viewModel?.remove(jobDetail: jobDetail, completion: {[weak self] in
+            guard let self = self else {
+                return
+            }
+            self.viewModel?.getJobOfferDetails()
+        })
     }
 }
 

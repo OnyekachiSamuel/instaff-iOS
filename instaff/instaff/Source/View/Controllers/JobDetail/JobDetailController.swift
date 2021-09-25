@@ -7,11 +7,17 @@
 
 import UIKit
 
+public protocol JobDetailControllerDelegate: AnyObject {
+    func didAcceptJobOffer(jobDetail: JobOfferDetail)
+}
+
 final class JobDetailController: UIViewController {
 
     @IBOutlet weak var acceptButton: UIButton!
     @IBOutlet weak var jobTypeLabel: UILabel!
     @IBOutlet weak var jobDescriptionLabel: UILabel!
+
+    weak var delegate: JobDetailControllerDelegate?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -29,6 +35,10 @@ final class JobDetailController: UIViewController {
     }
 
     @IBAction func acceptButtonPressed(_ sender: UIButton) {
+        guard let jobOfferDetail = viewModel?.jobOfferDetail else {
+            return
+        }
+        delegate?.didAcceptJobOffer(jobDetail: jobOfferDetail)
         navigationController?.popViewController(animated: true)
     }
 }
