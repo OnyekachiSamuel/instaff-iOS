@@ -15,10 +15,10 @@ final class JobDetailViewModel {
     }
 
     public var jobType: String {
-        return jobOffer.jobOfferDetail.jobType
+        return jobOffer.jobOfferDetail!.jobType
     }
 
     public var jobDescription: String {
-        return jobOffer.jobOfferDetail.description
+        return jobOffer.jobOfferDetail!.detail
     }
 }

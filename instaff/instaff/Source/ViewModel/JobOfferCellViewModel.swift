@@ -14,12 +14,16 @@ public final class JobOfferCellViewModel {
         self.jobOffer = jobOffer
     }
 
+    private var jobOfferDetail: JobOfferDetail {
+        return jobOffer.jobOfferDetail!
+    }
+
     private var fromData: String {
-        return format(date: jobOffer.jobOfferDetail.fromDate)
+        return format(date: jobOfferDetail.fromDate)
     }
 
     private var tillDate: String {
-        return format(date: jobOffer.jobOfferDetail.tillDate)
+        return format(date: jobOfferDetail.tillDate)
     }
 
     public var date: String {
@@ -27,6 +31,6 @@ public final class JobOfferCellViewModel {
     }
 
     public var hours: String {
-        return jobOffer.jobOfferDetail.jobOfferHours
+        return jobOfferDetail.jobOfferHours
     }
 }
