@@ -16,4 +16,4 @@ Swift Package Manager was used to handle the installation of dependencies in thi
 #### Screenshot of first screen
 
 
-![Simulator Screen Shot - iPhone 11 - 2021-09-24 at 17 17 57](https://user-images.githubusercontent.com/11311182/134709418-2046feb5-c7da-4b69-8a45-491b36388004.png)
+![Simulator Screen Shot - iPhone 11 - 2021-10-01 at 06 35 06](https://user-images.githubusercontent.com/11311182/135571658-191e64f1-9276-41ce-82ad-0524bb696de6.png)
