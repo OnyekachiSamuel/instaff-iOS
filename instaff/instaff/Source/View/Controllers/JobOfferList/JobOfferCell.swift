@@ -1,21 +1,25 @@
 //
-//  JobOfferCell.swift
-//  instaff
+//  JobOfferCell2.swift
+//  Instaff
 //
-//  Created by Onyekachi Ezeoke on 24/09/2021.
+//  Created by Onyekachi Ezeoke on 01/10/2021.
 //
 
 import UIKit
 
-final class JobOfferCell: UICollectionViewCell {
+public final class JobOfferCell: UITableViewCell {
     public static let reuseIdentifier = "JobOfferCell"
 
-    @IBOutlet weak var dateLabel: UILabel!
-    @IBOutlet weak var hoursLabel: UILabel!
-    
-    override func awakeFromNib() {
+    @IBOutlet weak var jobTypeLabel: UILabel!
+    @IBOutlet weak var cityLabel: UILabel!
+    @IBOutlet weak var durationLabel: UILabel!
+    @IBOutlet weak var wageRangeLabel: UILabel!
+    @IBOutlet weak var salaryLabel: UILabel!
+    @IBOutlet weak var deploymentLabel: UILabel!
+
+
+    public override func awakeFromNib() {
         super.awakeFromNib()
-        setupView()
     }
 
     public var viewModel: JobOfferCellViewModel? {
@@ -28,14 +32,16 @@ final class JobOfferCell: UICollectionViewCell {
         guard let viewModel = viewModel else {
             return
         }
-        dateLabel.text = viewModel.date
-        hoursLabel.text = viewModel.hours
+        jobTypeLabel.text = viewModel.jobType
+        cityLabel.text = viewModel.jobOfferCity
+        durationLabel.text = viewModel.date
+        wageRangeLabel.text = viewModel.wageRange
+        salaryLabel.text = viewModel.estimatedSalary
+        deploymentLabel.text = viewModel.deploymentAddress
     }
 
-    private func setupView() {
-        contentView.layer.cornerRadius = 5.0
-        contentView.layer.masksToBounds = true
-        layer.cornerRadius = 5.0
-        layer.masksToBounds = false
+    public override func setSelected(_ selected: Bool, animated: Bool) {
+        super.setSelected(selected, animated: animated)
     }
+    
 }
