@@ -37,7 +37,7 @@ extension JobOfferDetail: Decodable {
         case address = "LocationString"
         case city = "City"
         case deploymentName = "Event"
-        case detail = "ShortDescription"
+        case detail = "Description"
         case fromDate = "From"
         case jobID = "Id"
         case jobOfferHours = "Hours"

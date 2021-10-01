@@ -13,9 +13,17 @@ public protocol JobDetailControllerDelegate: AnyObject {
 
 final class JobDetailController: UIViewController {
 
+    @IBOutlet weak var estimatedSalary: UILabel!
+    @IBOutlet weak var wageRange: UILabel!
+    @IBOutlet weak var dateOfOffer: UILabel!
+    @IBOutlet weak var jobHours: UILabel!
+    @IBOutlet weak var jobCity: UILabel!
+    @IBOutlet weak var deploymentAddress: UILabel!
+    @IBOutlet weak var companyName: UILabel!
+    @IBOutlet weak var companyRating: UILabel!
+    @IBOutlet weak var jobDescription: UILabel!
+
     @IBOutlet weak var acceptButton: UIButton!
-    @IBOutlet weak var jobTypeLabel: UILabel!
-    @IBOutlet weak var jobDescriptionLabel: UILabel!
 
     weak var delegate: JobDetailControllerDelegate?
 
@@ -27,11 +35,15 @@ final class JobDetailController: UIViewController {
     public var viewModel: JobDetailViewModel?
 
     private func setupViews() {
-        view.backgroundColor = .white
         acceptButton.layer.cornerRadius = 5.0
         acceptButton.layer.masksToBounds = false
-        jobTypeLabel.text = viewModel?.jobType
-        jobDescriptionLabel.text = viewModel?.jobDescription
+        estimatedSalary.text = viewModel?.estimatedSalary
+        wageRange.text = viewModel?.wageRange
+        dateOfOffer.text = viewModel?.date
+        jobHours.text = viewModel?.jobHours
+        jobCity.text = viewModel?.jobOfferCity
+        deploymentAddress.text = viewModel?.deploymentAddress
+        jobDescription.text = viewModel?.jobDescription
     }
 
     @IBAction func acceptButtonPressed(_ sender: UIButton) {
