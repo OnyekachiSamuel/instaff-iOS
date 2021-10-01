@@ -43,8 +43,8 @@ final public class JobOfferListViewModel: JobOfferListProtocol {
                     jobOfferDetails.append(objectsIn: result)
                     DispatchQueue.main.async {
                         self.dataStore.save(jobOfferDetails: jobOfferDetails)
+                        self.jobOffers.onNext(result)
                     }
-                    self.jobOffers.onNext(result)
                 case let .failure(error):
                     self.error.onError(error)
             }
@@ -53,12 +53,16 @@ final public class JobOfferListViewModel: JobOfferListProtocol {
 
     public func getJobOfferDetails() {
         dataStore.getAllJobDetails { jobDetails in
-            self.jobOffers.onNext(jobDetails)
+            DispatchQueue.main.async {
+                self.jobOffers.onNext(jobDetails)
+            }
         }
     }
 
     public func remove(jobDetail: JobOfferDetail, completion: @escaping () -> Void) {
-        dataStore.remove(jobDetail: jobDetail)
-        completion()
+        DispatchQueue.main.async {
+            self.dataStore.remove(jobDetail: jobDetail)
+            completion()
+        }
     }
 }

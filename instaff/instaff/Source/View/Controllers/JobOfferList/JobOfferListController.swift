@@ -11,7 +11,7 @@ import RxSwift
 
 final class JobOfferListController: UIViewController {
 
-    @IBOutlet weak var jobOfferList: UICollectionView!
+    @IBOutlet weak var jobOfferList: UITableView!
     override func viewDidLoad() {
         super.viewDidLoad()
         let service = RemoteJobOfferLoader(url: getURL(), client: client)
@@ -20,8 +20,7 @@ final class JobOfferListController: UIViewController {
         setupViews()
 
         viewModel?
-            .offers
-            .observe(on: MainScheduler.instance)
+            .offers.observe(on: MainScheduler.instance)
             .bind(to: jobOfferList.rx.items(cellIdentifier: JobOfferCell.reuseIdentifier, cellType: JobOfferCell.self)) { [weak self] row, jobOfferDetail, cell in
                 let cellViewModel = JobOfferCellViewModel(jobOfferDetail: jobOfferDetail)
                 cell.backgroundColor = self?.nextColor(index: row)
@@ -37,6 +36,14 @@ final class JobOfferListController: UIViewController {
                 jobDetailController.viewModel = viewModel
                 self.navigationController?.pushViewController(jobDetailController, animated: true)
             }).disposed(by: disposeBag)
+
+        jobOfferList.rx.itemDeleted.subscribe(onNext: { [weak self] indexPath in
+            guard let self = self, let cell = self.jobOfferList.cellForRow(at: indexPath) as? JobOfferCell,
+            let jobOfferDetail = cell.viewModel?.jobOfferDetail else {
+                return
+            }
+            self.deleteJobOffer(jobOfferDetail)
+        }).disposed(by: disposeBag)
         
     }
 
@@ -48,7 +55,7 @@ final class JobOfferListController: UIViewController {
     // MARK: Private Instance Methods
     private func setupViews() {
         title = viewModel?.title
-        jobOfferList.register(UINib(nibName: "JobOfferCell", bundle: nil), forCellWithReuseIdentifier: JobOfferCell.reuseIdentifier)
+        jobOfferList.register(UINib(nibName: "JobOfferCell", bundle: nil), forCellReuseIdentifier: JobOfferCell.reuseIdentifier)
         jobOfferList.rx.setDelegate(self).disposed(by: disposeBag)
     }
 
@@ -73,27 +80,26 @@ final class JobOfferListController: UIViewController {
             return UIColor.lightPurple
         }
     }
-}
 
-extension JobOfferListController: UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        let width = collectionView.bounds.width - 34
-        return CGSize(width: width, height: 145)
-    }
-
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
-        return 8.0
-    }
-}
-
-extension JobOfferListController: JobDetailControllerDelegate {
-    func didAcceptJobOffer(jobDetail: JobOfferDetail) {
-        viewModel?.remove(jobDetail: jobDetail, completion: {[weak self] in
+    private func deleteJobOffer(_ jobOfferDetail: JobOfferDetail) {
+        viewModel?.remove(jobDetail: jobOfferDetail, completion: {[weak self] in
             guard let self = self else {
                 return
             }
             self.viewModel?.getJobOfferDetails()
         })
+    }
+}
+
+extension JobOfferListController: UITableViewDelegate {
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 240
+    }
+}
+
+extension JobOfferListController: JobDetailControllerDelegate {
+    func didAcceptJobOffer(jobDetail: JobOfferDetail) {
+        deleteJobOffer(jobDetail)
     }
 }
 
